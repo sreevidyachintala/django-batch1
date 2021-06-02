@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DisplayPage</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'jquery/jquery.min.js' %}"></script>
+	</head>
+<body>
+<div class="container">
+
+	{% if messages %}
+	
+	{% for i in  messages %}
+
+	{% if i.tags %}<script>alert("{{i}}")</script>{% endif %}
+
+	{% endfor %}
+	{% endif %}
+
+	
+	<table class="table table-sm mt-3 text-center table-success">
+		<thead>
+			<tr >
+				<th>Name</th>
+				<th>Email</th>
+				<th>Age</th>
+				<th>MobileNo</th>
+				<th colspan="2">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for i in data %}
+			<tr>
+				<td>{{i.name}}</td>
+				<td>{{i.email}}</td>
+				<td>{{i.age}}</td>
+				<td>{{i.mobile_no}}</td>
+				<td><a href="{% url 'update' i.id %}" class="btn btn-outline-warning">Update</a> </td>
+				<td><a href="{% url 'delete' i.id %}" class="btn btn-outline-danger">Delete</a> </td>
+			</tr>
+			{% endfor %}
+		</tbody>		
+	</table>
+</div>
+	
+
+</body>
+</html>

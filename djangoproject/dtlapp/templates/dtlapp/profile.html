@@ -1,0 +1,61 @@
+{% extends 'dtlapp/base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+
+{% block content %}
+<div class="container">
+	<div class="row mt-5">
+	<div class="card col-md-4" style="margin: auto;">
+		<h3 class="bg-primary mt-2 text-center p-2" >Profile</h3>
+		<div class="card-body">
+			<img src="{{request.user.update.image.url}}" style="height: 250px;width: 100%">
+			
+		</div>
+		
+	</div>
+	<div class="card col-md-5 mx-2">
+		<h3 class="bg-info mt-2 text-center p-2">Details</h3>
+		<form method="POST">
+			{% csrf_token %}
+		<table class="card-body table table-borderless mx-2 ">
+			<tr>
+				<th>Username</th>
+				<td>{{user.username}}</td>
+			</tr>
+			<tr>
+				<th>FirstName</th>
+				<td>{{user.first_name}}</td>
+			</tr>
+			<tr>
+				<th>LastName</th>
+				<td>{{user.last_name}}</td>
+			</tr>
+			<tr>
+				<th>DateOfJoined</th>
+				<td>{{user.date_joined}}</td>
+			</tr>
+			<tr>
+				<th>LastLogin</th>
+				<td>{{user.last_login}}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{user.email}}</td>
+			</tr>
+			
+
+				
+		
+		</table>
+		<a href="{% url 'uppro' %}" class="btn btn-warning mb-2">Update</a>
+	</form>
+		
+	</div>
+	
+</div>
+
+</div>
+
+
+{% endblock %}

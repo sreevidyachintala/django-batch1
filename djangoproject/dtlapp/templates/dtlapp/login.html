@@ -1,0 +1,41 @@
+{% extends 'dtlapp/base.html' %}
+
+{% block title %} Login Page {% endblock %}
+
+{% block content %}
+<div class="p-4 m-4">
+	<div class="col-lg-5 mt-5 mb-4 mx-auto border pt-4 rounded">
+		<div class="text-center text-primary">
+			<h2>Login Here</h2>
+			 
+		</div>
+		<hr>
+		<form method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label><strong>Username</strong></label>
+				<input type="text" placeholder="enter Username" class="form-control"  name="username">
+				
+			</div>
+			<div class="form-group">
+				<label><strong>Password</strong></label>
+				<input type="password" class="form-control" placeholder="enter your password" name="password">
+				
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Login" class="btn btn-outline-info" name="">
+
+				<a href="{% url 'register' %}" class="btn btn-outline-secondary">New User</a>
+
+				
+			</div>
+			
+			
+		</form>
+		
+	</div>
+	
+</div>
+
+
+{% endblock %}
